@@ -1,0 +1,40 @@
+output:
+  udmx:
+    type: udmx
+    parameters:
+      device: 0
+  light:
+    type: wemo
+      parameters:
+        username: velinszkylaci@gmail.com
+        password: laded
+        id: random
+  vlc:
+    type: vlc
+    parameters:
+      ip: 192.168.5.3
+      username: lancelot
+      password: 1234
+input:
+  wyzecam:
+    type: wyze
+    parameters:
+      username: ...
+      password: ...
+      device: ...
+trigger:
+  device: wyzecam
+  trigger: motion
+sequence:
+  00:00:00.000:
+    actions:
+      - device: udmx
+        params:
+        - ch: 0
+          val: 255
+        - ch: 1
+          val: 255
+
+
+
+    
