@@ -31,4 +31,8 @@ class Trigger:
     def listen():
         pass
 
+class TimeTrigger(Trigger):
+    pass
 
+class WyzeTrigger(Trigger):
+    pass

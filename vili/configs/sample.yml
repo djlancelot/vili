@@ -5,10 +5,10 @@ output:
       device: 0
   light:
     type: wemo
-      parameters:
-        username: velinszkylaci@gmail.com
-        password: laded
-        id: random
+    parameters:
+      username: velinszkylaci@gmail.com
+      password: laded
+      id: random
   vlc:
     type: vlc
     parameters:
@@ -22,9 +22,7 @@ input:
       username: ...
       password: ...
       device: ...
-trigger:
-  device: wyzecam
-  trigger: motion
+      trigger: motion
 sequence:
   00:00:00.000:
     actions:

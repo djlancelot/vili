@@ -1,2 +1,5 @@
 input_key = "input"
 output_key = "output"
+sequence_key = "sequence"
+device_type = "type"
+device_params = "parameters"
