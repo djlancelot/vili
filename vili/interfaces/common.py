@@ -1,3 +1,5 @@
+import logging
+from msilib.schema import Control
 from os import device_encoding
 from sqlite3 import Timestamp
 import string
@@ -8,11 +10,27 @@ class Controllable:
     id: string
     actions: dict
 
+    def do(self, action: string, parameters: dict):
+        try:
+            self.actions[action](parameters)
+        except KeyError:
+            logging.error(f"{action} action is not supported by {self.__name__}")
+
+    def register(self, action: str, function: function):
+        self.actions[action] = function
+
 class WemoLight(Controllable):
-    device
+    pass
 
 class UDMXLight(Controllable):
-    device
+    pass
+
+class DummyControllable(Controllable):
+    
+    def __init__(self, parameters: dict):
+        self.parameters = parameters
+        self.actions["print"]=print
+
 
 
 class Action:

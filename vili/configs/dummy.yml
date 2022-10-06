@@ -1,0 +1,30 @@
+output:
+  dumy1:
+    type: dummy
+    parameters:
+      device: 0
+  dummy2:
+    type: dummy
+    parameters:
+      id: random
+input:
+  dummy:
+    type: dummy
+    parameters:
+      username: ...
+      password: ...
+      device: ...
+      trigger: motion
+sequence:
+  00:00:00.000:
+    actions:
+      - device: dummy1
+        params:
+        - ch: 0
+          val: 255
+        - ch: 1
+          val: 255
+
+
+
+    

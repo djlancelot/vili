@@ -27,7 +27,7 @@ def getOutputs(config: dict):
             outputs[key] = controllable
         except KeyError as e:
             logging.error(f"{device_type} or {device_params} sections are malformed or missing.")
-
+    return outputs
 
 def getInputs(config: dict):
     config.get(input_key, dict())
