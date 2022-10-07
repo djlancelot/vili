@@ -1,37 +1,30 @@
 import logging
-from msilib.schema import Control
-from os import device_encoding
 from sqlite3 import Timestamp
 import string
 from typing import AnyStr, List
 
+class Registerable:
+    _id: string
 
-class Controllable:
-    id: string
-    actions: dict
+class Controllable(Registerable):
 
-    def do(self, action: string, parameters: dict):
-        try:
-            self.actions[action](parameters)
-        except KeyError:
-            logging.error(f"{action} action is not supported by {self.__name__}")
-
-    def register(self, action: str, function: function):
-        self.actions[action] = function
-
+    def do(self, parameters: dict):
+        raise RuntimeError("TODO")
+        
 class WemoLight(Controllable):
-    pass
+    _id = "wemo"
 
 class UDMXLight(Controllable):
-    pass
+    _id = "udmx"
 
 class DummyControllable(Controllable):
+    _id = "dummy"
     
     def __init__(self, parameters: dict):
         self.parameters = parameters
-        self.actions["print"]=print
 
-
+    def do(self, parameters: dict):
+        print(parameters)
 
 class Action:
     controllable: Controllable
@@ -44,13 +37,18 @@ class Step:
 class Sequence:
     steps: List[Step]
 
-class Trigger:
-    id: AnyStr
+class Trigger(Registerable):
     def listen():
         pass
 
 class TimeTrigger(Trigger):
-    pass
+    _id = "timer"
 
 class WyzeTrigger(Trigger):
-    pass
+    _id = "wyze"
+
+class DummyTrigger(Trigger):
+    _id = "dummy"
+
+    def __init__(self, parameters):
+        self.parameters = parameters

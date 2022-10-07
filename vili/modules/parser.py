@@ -16,7 +16,7 @@ def readFile(filePath: str):
     return content
 
 def readYaml(content: str):
-    yaml.load(content)
+    return yaml.load(content, Loader=yaml.CSafeLoader)
 
 def getOutputs(config: dict):
     outputs = dict()
@@ -41,3 +41,9 @@ def parse(file: str):
     controllables = getOutputs(config)
     triggers = getInputs(config)
     sequence = getSequence(config)
+    return {
+        "controllables": controllables,
+        "triggers": triggers,
+        "sequence": sequence,
+        "config": config
+    }

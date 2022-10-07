@@ -1,5 +1,5 @@
 output:
-  dumy1:
+  dummy1:
     type: dummy
     parameters:
       device: 0

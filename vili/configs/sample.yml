@@ -6,14 +6,14 @@ output:
   light:
     type: wemo
     parameters:
-      username: velinszkylaci@gmail.com
+      username: test123@gmail.com
       password: laded
       id: random
   vlc:
     type: vlc
     parameters:
       ip: 192.168.5.3
-      username: lancelot
+      username: test123
       password: 1234
 input:
   wyzecam:
