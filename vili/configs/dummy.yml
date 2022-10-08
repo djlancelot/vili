@@ -19,7 +19,7 @@ sequence:
   00:00:00.000:
     actions:
       - device: dummy1
-        params:
+        parameters:
         - ch: 0
           val: 255
         - ch: 1

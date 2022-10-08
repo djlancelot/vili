@@ -1,5 +1,4 @@
 import logging
-from django import conf
 import yaml
 
 from vili.interfaces.registry import initOutput

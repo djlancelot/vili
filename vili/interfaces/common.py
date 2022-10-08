@@ -4,21 +4,15 @@ import string
 from typing import AnyStr, List
 
 class Registerable:
-    _id: string
+    id: string
 
 class Controllable(Registerable):
 
     def do(self, parameters: dict):
         raise RuntimeError("TODO")
-        
-class WemoLight(Controllable):
-    _id = "wemo"
-
-class UDMXLight(Controllable):
-    _id = "udmx"
 
 class DummyControllable(Controllable):
-    _id = "dummy"
+    id = "dummy"
     
     def __init__(self, parameters: dict):
         self.parameters = parameters
@@ -42,13 +36,13 @@ class Trigger(Registerable):
         pass
 
 class TimeTrigger(Trigger):
-    _id = "timer"
+    id = "timer"
 
 class WyzeTrigger(Trigger):
-    _id = "wyze"
+    id = "wyze"
 
 class DummyTrigger(Trigger):
-    _id = "dummy"
+    id = "dummy"
 
     def __init__(self, parameters):
         self.parameters = parameters

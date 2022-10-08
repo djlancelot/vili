@@ -1,6 +1,9 @@
+import imp
 import logging
 from typing import Set
-from .common import Controllable, DummyControllable, DummyTrigger, Registerable, TimeTrigger, UDMXLight, WemoLight, WyzeTrigger
+from .common import Controllable, DummyControllable, DummyTrigger, Registerable, TimeTrigger, WyzeTrigger
+from .udmx import UDMXLight
+from .wemo import WemoLight
 
 outputs = None
 inputs = None
@@ -9,7 +12,7 @@ input_set = { WyzeTrigger, DummyTrigger, TimeTrigger }
 output_set = { UDMXLight, WemoLight, DummyControllable }
 
 def cache(things: Set[Registerable]):
-    return { thing._id: thing for thing in things }
+    return { thing.id: thing for thing in things }
 
 def getOutput(output: str):
     global outputs
