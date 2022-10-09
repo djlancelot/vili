@@ -9,6 +9,7 @@ verify_ssl = true
 pywemo = "*"
 udmx-pyusb = "*"
 pyyaml = "*"
+python-telnet-vlc = "*"
 
 [requires]
 python_version = "3.8"
