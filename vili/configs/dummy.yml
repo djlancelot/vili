@@ -14,17 +14,16 @@ input:
       username: ...
       password: ...
       device: ...
-      trigger: motion
 sequence:
-  00:00:00.000:
-    actions:
-      - device: dummy1
-        parameters:
-        - ch: 0
-          val: 255
-        - ch: 1
-          val: 255
-
-
-
-    
+  - event: input
+    device: dummy
+    trigger: motion 
+  - event: time
+    steps:
+    - ts: "00:00:00.000"
+      device: dummy1
+      parameters:
+      - ch: 0
+        val: 255
+      - ch: 1
+        val: 255

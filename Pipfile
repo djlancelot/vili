@@ -10,6 +10,7 @@ pywemo = "*"
 udmx-pyusb = "*"
 pyyaml = "*"
 python-telnet-vlc = "*"
+wyze-sdk = "*"
 
 [requires]
 python_version = "3.8"
